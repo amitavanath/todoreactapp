@@ -2,11 +2,16 @@ import React, { Component } from "react";
 
 export class ToDoItem extends Component {
  
+    linethrough = () => {
+        return {
+            textDecoration: this.props.todo.completed ? 'line-through' : 'none',
+        }
+    };
 
   render() {
     const { id, name, completed } = this.props.todo;
     return (
-      <div>
+      <div style={ this.linethrough() }>
         <p>
           <input
             type="checkbox"
