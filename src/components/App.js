@@ -4,8 +4,6 @@ import axios from "axios";
 import AddToDo from "./AddToDo";
 import ToDoList from "./ToDoList";
 
-import todoapis from "../apis/todoapis";
-
 import './App.css';
 
 class App extends React.Component {
@@ -13,15 +11,16 @@ class App extends React.Component {
     todos: [],
   };
 
+  
   componentDidMount() {
     axios
-      .get("https://localhost:44309/api/todolist")
+      .get("/todolist")
       .then((res) => this.setState({ todos: res.data }));
   }
 
   onToDoItemAddSubmit = (todoItemName) => {
-    todoapis
-      .post("https://localhost:44309/api/todolist", {
+    axios
+      .post("/todolist", {
         name: todoItemName,
         completed: false,
       })
@@ -35,7 +34,7 @@ class App extends React.Component {
 
   deleteTodo = (id) => {
     axios
-      .delete(`https://localhost:44309/api/todolist/${id}`)
+      .delete(`/todolist/${id}`)
       .then((res) =>
         this.setState({
           todos: [...this.state.todos.filter((todo) => todo.id !== id)],
@@ -66,7 +65,7 @@ class App extends React.Component {
     ]);
 
     axios.patch(
-      `https://localhost:44309/api/todolist/${id}`,
+      `/todolist/${id}`,
       patchData,
       {
         headers: {
