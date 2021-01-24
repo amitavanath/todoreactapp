@@ -43,13 +43,7 @@ class App extends React.Component {
   };
 
   completeToDo = (id) => {
-    //console.log(id);
-
-    // var getStatus = this.state.todos.map(todo => {
-    //     if(todo.id === id)
-    //         return !todo.completed;
-    //   })[0];
-
+    
      var getStatus = this.state.todos.filter((todo) => {
         return (todo.id === id);
       })[0].completed;
@@ -69,7 +63,6 @@ class App extends React.Component {
       patchData,
       {
         headers: {
-          // Overwrite Axios's automatically set Content-Type
           "Content-Type": "application/json",
         },
       }
