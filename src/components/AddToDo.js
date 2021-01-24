@@ -7,6 +7,13 @@ class AddToDo extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
+
+    const target = event.target;
+    if (!this.state.name) {
+      alert("Please enter a ToDo item");
+      return false;
+    }
+
     this.props.onFormSubmit(this.state.name);
     this.setState({ name: "" });
   };
