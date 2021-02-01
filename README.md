@@ -17,3 +17,9 @@ You will also see any lint errors in the console.
 
 If you want to point to locally hosted API server, please change index.js file
 and update the Axios base url reference.
+
+The app is also hosted on Azure Webapp using Azure Devops Build and Release pipelines (there may be some initial delay to load up the list because of API layer webapp warm up time).
+https://todoappreactjs.azurewebsites.net
+
+Corresponding API repo link for this application is as below:
+https://github.com/amitavanath/todochallenge.git
